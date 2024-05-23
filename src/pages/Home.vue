@@ -1,8 +1,9 @@
 <script setup lang="ts">
 
 import Page from '@/components/Page.vue';
-import { useStoryblokApi, useStoryblokBridge } from '@storyblok/vue';
-import { onMounted, ref } from 'vue';
+import type { Story } from '@/types/story';
+import { useStoryblokApi, useStoryblokBridge, type ISbStoryData } from '@storyblok/vue';
+import { onMounted, ref, type Ref } from 'vue';
 
 const storyblokApi = useStoryblokApi();
 
@@ -11,11 +12,12 @@ const { data } = await storyblokApi.get(
   { version: "published" }
 )
 
-const story = ref(null);
+const story: Ref<ISbStoryData> = ref(<ISbStoryData>{});
 story.value = data.story;
 
 onMounted(() => {
-    useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory));
+    let storyValue = story.value ?? {};
+    useStoryblokBridge(storyValue.id, (evStory) => (storyValue = evStory));
 });
 </script>
 

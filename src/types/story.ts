@@ -1,13 +1,15 @@
+import type { Block } from "typescript";
 import type { AlternateStory } from "./alternate-story";
+import type { Content } from "./content";
 import type { TranslatableSlug } from "./translatable-slug";
 
-export type Story<Content> = {
+export type Story = {
     name: string;
     created_at: string;
     published_at: string;
     id: number;
     uuid: string;
-    content: Content;
+    content: Content<Array<Block>>;
     slug: string;
     full_slug: string;
     sort_by_date: string;
