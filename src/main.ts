@@ -1,6 +1,6 @@
 import './assets/main.css'
 
-import { createApp } from 'vue/dist/vue.esm-bundler'; // https://github.com/fengyuanchen/vue-feather/issues/8
+import { createApp } from 'vue'; // https://github.com/fengyuanchen/vue-feather/issues/8
 //import { createPinia } from 'pinia'
 
 import { StoryblokVue, apiPlugin } from "@storyblok/vue";
