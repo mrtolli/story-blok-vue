@@ -2,10 +2,12 @@
 
   import HelloWorld from './HelloWorld.vue'
   import Logo from './Logo.vue'
+  import TheWelcome from '../components/TheWelcome.vue'
 
   const props = defineProps({ blok: Object })
 
-  console.log(props.blok)
+  const logo = props.blok?.body.find((field: { component: string; }) => field.component == 'logo');
+  const helloWorld = props.blok?.body.find((field: { component: string; }) => field.component == 'hello-world');
 
   //const logoBlok = props.blok?.body[0];
   //const logoFileName = props.blok?.body[0].vue_logo.filename;
@@ -15,11 +17,15 @@
 <template>
 
   <header>
-    <Logo :logo-src="blok?.vue_logo.filename" :logo-blok="blok" v-editable="blok"></Logo>
+    <Logo :logo-src="logo.vue_logo.filename" :logo-blok="logo" v-editable="logo"></Logo>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld :msg="helloWorld.heading" v-editable="helloWorld" />
     </div>
   </header>
+
+  <main>
+    <TheWelcome />
+  </main>
     
 </template>
     
