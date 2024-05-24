@@ -7,7 +7,7 @@ import { onMounted, reactive, ref, type Ref } from 'vue';
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get(
   "cdn/stories/vue-test-page",
-  { version: "published" }
+  { version: "draft" }
 )
 
 const story: Ref<ISbStoryData> = ref(<ISbStoryData>{});
