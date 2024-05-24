@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 import Page from '@/components/Page.vue';
-import type { Story } from '@/types/story';
 import { useStoryblokApi, useStoryblokBridge, type ISbStoryData } from '@storyblok/vue';
 import { onMounted, ref, type Ref } from 'vue';
 
