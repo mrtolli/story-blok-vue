@@ -1,7 +1,6 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'; // https://github.com/fengyuanchen/vue-feather/issues/8
-//import { createPinia } from 'pinia'
+import { createApp } from 'vue';
 
 import { StoryblokVue, apiPlugin } from "@storyblok/vue";
 
@@ -25,7 +24,5 @@ app.component("logo", Logo)
 app.component("TheWelcome", TheWelcome)
 app.component("welcome-item", WelcomeItem)
 app.component("page", Page)
-
-//app.use(createPinia())
 
 app.mount('#app')

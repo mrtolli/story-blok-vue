@@ -5,7 +5,7 @@
 
   const props = defineProps({ blok: Object })
 
-  const logoBlok = props.blok?.body[0].logo.filename;
+  const logoBlok = props.blok?.body[0].vue_logo.filename;
 
 </script>
 
