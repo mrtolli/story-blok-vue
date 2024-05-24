@@ -2,10 +2,9 @@
 
 import Page from '@/components/Page.vue';
 import { useStoryblokApi, useStoryblokBridge, type ISbStoryData } from '@storyblok/vue';
-import { onMounted, ref, type Ref } from 'vue';
+import { onMounted, reactive, ref, type Ref } from 'vue';
 
 const storyblokApi = useStoryblokApi();
-
 const { data } = await storyblokApi.get(
   "cdn/stories/vue-test-page",
   { version: "published" }
@@ -14,13 +13,14 @@ const { data } = await storyblokApi.get(
 const story: Ref<ISbStoryData> = ref(<ISbStoryData>{});
 story.value = data.story;
 
+const logo = story.value.content.body.find((field) => field.component == 'logo');
+
 onMounted(() => {
-    let storyValue = story.value ?? {};
-    useStoryblokBridge(storyValue.id, (evStory) => (storyValue = evStory));
+    useStoryblokBridge(story.value.id, (updatedStory) => (story.value = updatedStory));
 });
 </script>
 
 <template>
-  <Page :blok="story.content" />
+  <Page :blok="logo" v-editable="story.content" />
 </template>
     

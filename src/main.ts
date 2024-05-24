@@ -19,10 +19,10 @@ app.use(StoryblokVue, {
     bridge: true
 });
 
-app.component("hello-world", HelloWorld)
-app.component("logo", Logo)
-app.component("TheWelcome", TheWelcome)
-app.component("welcome-item", WelcomeItem)
-app.component("page", Page)
+// app.component("hello-world", HelloWorld)
+// app.component("logo", Logo)
+// app.component("TheWelcome", TheWelcome)
+// app.component("welcome-item", WelcomeItem)
+//app.component("page", Page)
 
 app.mount('#app')

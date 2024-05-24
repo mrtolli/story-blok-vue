@@ -5,15 +5,17 @@
 
   const props = defineProps({ blok: Object })
 
-  const logoBlok = props.blok?.body[0];
-  const logoFileName = props.blok?.body[0].vue_logo.filename;
+  console.log(props.blok)
+
+  //const logoBlok = props.blok?.body[0];
+  //const logoFileName = props.blok?.body[0].vue_logo.filename;
 
 </script>
 
 <template>
 
   <header>
-    <Logo :logo-src="logoFileName" :logo-blok="logoBlok" v-editable="logoBlok"></Logo>
+    <Logo :logo-src="blok?.vue_logo.filename" :logo-blok="blok" v-editable="blok"></Logo>
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
