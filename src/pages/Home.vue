@@ -1,26 +1,20 @@
 <script setup lang="ts">
+import {useStoryblok} from '@storyblok/vue';
+import {provide} from 'vue';
 
-import Page from '@/components/Page.vue';
-import { useStoryblokApi, useStoryblokBridge, type ISbStoryData } from '@storyblok/vue';
-import { onMounted, reactive, ref, type Ref } from 'vue';
+const story = await useStoryblok('vue-test-page', { version: 'draft' });
 
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get(
-  "cdn/stories/vue-test-page",
-  { version: "draft" }
-)
+const logo = story.value.content.body.find((field: { component: string; }) => field.component == 'logo');
+const helloWorld = story.value.content.body.find((field: { component: string; }) => field.component == 'hello-world');
+const theWelcome  = story.value.content.body.find((field: { component: string; }) => field.component == 'the-welcome');
 
-const story: Ref<ISbStoryData> = ref(<ISbStoryData>{});
-story.value = data.story;
+provide('logo', logo)
+provide('helloWorld', helloWorld)
+provide('theWelcome', theWelcome)
 
-const page = story.value.content;
-
-onMounted(() => {
-    useStoryblokBridge(story.value.id, (updatedStory) => (story.value = updatedStory));
-});
 </script>
 
 <template>
-  <Page :blok="page" v-editable="story.content" />
+    <StoryblokComponent v-if="story" :blok="story.content" />
 </template>
     

@@ -1,13 +1,26 @@
+<script setup lang="ts">
+import {computed} from "vue";
+import {renderRichText} from "@storyblok/vue";
+
+const props = defineProps({ blok: Object })
+const welcomeItem = props.blok;
+
+
+const itemText = computed(() => renderRichText(welcomeItem.description))
+
+</script>
+
+
 <template>
   <div class="item">
-    <i>
-      <slot name="icon"></slot>
+    <i v-editable="welcomeItem">
+      <img :src="welcomeItem.icon.filename" />
     </i>
     <div class="details">
       <h3>
-        <slot name="heading"></slot>
+        {{ welcomeItem.heading }}
       </h3>
-      <slot></slot>
+      <div v-html="itemText"></div>
     </div>
   </div>
 </template>

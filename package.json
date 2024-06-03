@@ -1,5 +1,5 @@
 {
-  "name": "storyblok-prototype",
+  "name": "storyblok-with-ts-and-devtools",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,9 +12,7 @@
   },
   "dependencies": {
     "@storyblok/vue": "^8.0.8",
-    "pinia": "^2.1.7",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",

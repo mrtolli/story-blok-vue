@@ -1,9 +1,9 @@
 <script setup lang="ts">
-    defineProps({
-        logoSrc: String,
-        logoBlok: Object
-    })
+    const props = defineProps({ blok: Object })
+    const logo = props.blok;
 </script>
 <template>
-    <img alt="Vue logo" class="logo" :src="logoSrc" width="125" height="125" v-editable="logoBlok" />
+  <div v-editable="logo">
+    <img alt="Vue logo" class="logo" :src="logo.vue_logo.filename" width="125" height="125" />
+  </div>
 </template>

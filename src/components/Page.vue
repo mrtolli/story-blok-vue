@@ -1,30 +1,27 @@
 <script setup lang="ts">
+  import { inject } from 'vue'
 
-  import HelloWorld from './HelloWorld.vue'
-  import Logo from './Logo.vue'
-  import TheWelcome from '../components/TheWelcome.vue'
+  import type {SbBlokData} from "@storyblok/vue";
 
-  const props = defineProps({ blok: Object })
-
-  const logo = props.blok?.body.find((field: { component: string; }) => field.component == 'logo');
-  const helloWorld = props.blok?.body.find((field: { component: string; }) => field.component == 'hello-world');
-
-  //const logoBlok = props.blok?.body[0];
-  //const logoFileName = props.blok?.body[0].vue_logo.filename;
-
+  const logo = <SbBlokData>inject('logo')
+  const helloWorld = <SbBlokData>inject('helloWorld')
+  const theWelcome = <SbBlokData>inject('theWelcome')
 </script>
 
 <template>
 
   <header>
-    <Logo :logo-src="logo.vue_logo.filename" :logo-blok="logo" v-editable="logo"></Logo>
-    <div class="wrapper">
-      <HelloWorld :msg="helloWorld.heading" v-editable="helloWorld" />
+    <div :v-editable="logo">
+      <StoryblokComponent v-if="logo" :blok="logo" />
+    </div>
+
+    <div class="wrapper" :v-editable="helloWorld">
+      <StoryblokComponent v-if="helloWorld" :blok="helloWorld" />
     </div>
   </header>
 
-  <main>
-    <TheWelcome />
+  <main :v-editable="theWelcome">
+    <StoryblokComponent v-if="theWelcome" :blok="theWelcome" />
   </main>
     
 </template>
