@@ -11,17 +11,17 @@
 <template>
 
   <header>
-    <div :v-editable="logo">
-      <StoryblokComponent v-if="logo" :blok="logo" />
-    </div>
 
-    <div class="wrapper" :v-editable="helloWorld">
-      <StoryblokComponent v-if="helloWorld" :blok="helloWorld" />
+      <StoryblokComponent v-if="logo" :blok="logo" :v-editable="logo" />
+
+
+    <div class="wrapper" >
+      <StoryblokComponent v-if="helloWorld" :blok="helloWorld" :v-editable="helloWorld" />
     </div>
   </header>
 
-  <main :v-editable="theWelcome">
-    <StoryblokComponent v-if="theWelcome" :blok="theWelcome" />
+  <main >
+    <StoryblokComponent v-if="theWelcome" :blok="theWelcome" :v-editable="theWelcome"/>
   </main>
     
 </template>
