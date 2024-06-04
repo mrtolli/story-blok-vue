@@ -8,7 +8,7 @@ const theWelcome = <SbBlokData>inject('theWelcome')
 </script>
 
 <template>
-  <div v-editable="theWelcome" v-if="theWelcome" v-for="welcomeItem in theWelcome.items">
-    <StoryblokComponent :blok="welcomeItem" />
+  <div v-editable="theWelcome" v-if="theWelcome" v-for="welcomeItem in theWelcome.items" :key="welcomeItem._uid">
+    <StoryblokComponent v-if="welcomeItem" :blok="welcomeItem" />
   </div>
 </template>
