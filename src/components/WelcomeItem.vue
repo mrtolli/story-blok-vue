@@ -12,8 +12,8 @@ const itemText = computed(() => renderRichText(welcomeItem.description))
 
 
 <template>
-  <div class="item">
-    <i v-editable="welcomeItem">
+  <div class="item" v-if="welcomeItem">
+    <i v-editable="welcomeItem" >
       <img :src="welcomeItem.icon.filename" />
     </i>
     <div class="details">
