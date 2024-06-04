@@ -4,7 +4,7 @@ const helloWorld = props.blok;
 </script>
 
 <template>
-  <div class="greetings" v-if="helloWorld" :v-editable="helloWorld">
+  <div class="greetings" v-if="helloWorld" v-editable="helloWorld">
     <h1 class="green" >{{ helloWorld.heading }}</h1>
     <h3>
       {{ helloWorld.sub_heading }}

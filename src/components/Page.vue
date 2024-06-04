@@ -12,16 +12,16 @@
 
   <header>
 
-      <StoryblokComponent v-if="logo" :blok="logo" :v-editable="logo" />
+      <StoryblokComponent v-if="logo" :blok="logo"  />
 
 
     <div class="wrapper">
-      <StoryblokComponent v-if="helloWorld" :blok="helloWorld" :v-editable="helloWorld" />
+      <StoryblokComponent v-if="helloWorld" :blok="helloWorld"  />
     </div>
   </header>
 
   <main>
-    <StoryblokComponent v-if="theWelcome" :blok="theWelcome" :v-editable="theWelcome"/>
+    <StoryblokComponent v-if="theWelcome" :blok="theWelcome" />
   </main>
     
 </template>
