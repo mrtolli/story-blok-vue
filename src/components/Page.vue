@@ -9,21 +9,15 @@
 </script>
 
 <template>
-
   <header>
-
-      <StoryblokComponent v-if="logo" :blok="logo"  />
-
-
+    <StoryblokComponent v-if="logo" :blok="logo"  />
     <div class="wrapper">
       <StoryblokComponent v-if="helloWorld" :blok="helloWorld"  />
     </div>
   </header>
-
   <main>
     <StoryblokComponent v-if="theWelcome" :blok="theWelcome" />
   </main>
-    
 </template>
     
     

@@ -5,11 +5,8 @@ import {renderRichText} from "@storyblok/vue";
 const props = defineProps({ blok: Object })
 const welcomeItem = props.blok;
 
-
 const itemText = computed(() => renderRichText(welcomeItem?.description))
-
 </script>
-
 
 <template>
   <div class="item" v-if="welcomeItem">
