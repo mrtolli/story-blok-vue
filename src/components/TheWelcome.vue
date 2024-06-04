@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 
-import type {SbBlokData} from "@storyblok/vue";
+import type {SbBlokData, SbBlokKeyDataTypes} from "@storyblok/vue";
 
-const theWelcome = <SbBlokData>inject('theWelcome')
+const theWelcome: SbBlokData = <SbBlokData>inject('theWelcome')
+
 
 </script>
 
