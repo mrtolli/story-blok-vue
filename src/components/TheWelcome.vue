@@ -4,12 +4,12 @@ import { inject } from 'vue'
 import type {SbBlokData, SbBlokKeyDataTypes} from "@storyblok/vue";
 
 const theWelcome: SbBlokData = <SbBlokData>inject('theWelcome')
-
+const welcomeItems: Array<SbBlokData> = <Array<SbBlokData>>theWelcome.items;
 
 </script>
 
 <template>
-  <div v-editable="theWelcome" v-if="theWelcome" v-for="welcomeItem in theWelcome.items" :key="welcomeItem._uid">
+  <div v-editable="theWelcome" v-if="theWelcome" v-for="welcomeItem in welcomeItems" :key="welcomeItem._uid">
     <StoryblokComponent v-if="welcomeItem" :blok="welcomeItem" />
   </div>
 </template>
