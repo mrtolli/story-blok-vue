@@ -4,10 +4,10 @@ const helloWorld = props.blok;
 </script>
 
 <template>
-  <div class="greetings" v-if="helloWorld" :v-editable="helloWorld">
-    <h1 class="green">{{ helloWorld.heading }}</h1>
+  <div class="greetings" v-if="helloWorld">
+    <h1 class="green" :v-editable="helloWorld.heading">{{ helloWorld.heading }}</h1>
     <h3>
-      {{ helloWorld.sub_heading }}
+      <span :v-editable="helloWorld.sub_heading">{{ helloWorld.sub_heading }}</span>
       <a :href="helloWorld.link_vite.url" target="_blank" rel="noopener">Vite</a> +
       <a :href="helloWorld.link_vue.url" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
