@@ -6,7 +6,7 @@ const props = defineProps({ blok: Object })
 const welcomeItem = props.blok;
 
 
-const itemText = computed(() => renderRichText(welcomeItem.description))
+const itemText = computed(() => renderRichText(welcomeItem?.description))
 
 </script>
 
