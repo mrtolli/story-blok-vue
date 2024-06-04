@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 
-import type {SbBlokData, SbBlokKeyDataTypes} from "@storyblok/vue";
+import type {SbBlokData} from "@storyblok/vue";
 
 const theWelcome: SbBlokData = <SbBlokData>inject('theWelcome')
 const welcomeItems: Array<SbBlokData> = <Array<SbBlokData>>theWelcome.items;
@@ -10,6 +10,6 @@ const welcomeItems: Array<SbBlokData> = <Array<SbBlokData>>theWelcome.items;
 
 <template>
   <div v-editable="theWelcome" v-if="theWelcome" v-for="welcomeItem in welcomeItems" :key="welcomeItem._uid">
-    <StoryblokComponent v-if="welcomeItem" :blok="welcomeItem" />
+    <StoryblokComponent v-if="welcomeItem" :blok="welcomeItem" :key="welcomeItem._uid" />
   </div>
 </template>
