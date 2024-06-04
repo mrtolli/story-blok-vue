@@ -13,14 +13,14 @@ const itemText = computed(() => renderRichText(welcomeItem?.description))
 
 <template>
   <div class="item" v-if="welcomeItem">
-    <i v-editable="welcomeItem" >
-      <img :src="welcomeItem.icon.filename" />
+    <i>
+      <img v-editable="welcomeItem.icon.filename" :src="welcomeItem.icon.filename" />
     </i>
     <div class="details">
-      <h3>
+      <h3 v-editable="welcomeItem.heading">
         {{ welcomeItem.heading }}
       </h3>
-      <div v-html="itemText"></div>
+      <div v-html="itemText" v-editable="itemText"></div>
     </div>
   </div>
 </template>

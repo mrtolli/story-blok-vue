@@ -10,6 +10,6 @@ const welcomeItems: Array<SbBlokData> = <Array<SbBlokData>>theWelcome.items;
 
 <template>
   <div v-editable="theWelcome" v-if="theWelcome" v-for="welcomeItem in welcomeItems" :key="welcomeItem._uid">
-    <StoryblokComponent v-if="welcomeItem" :blok="welcomeItem" :key="welcomeItem._uid" />
+    <StoryblokComponent v-if="welcomeItem" :blok="welcomeItem" />
   </div>
 </template>
