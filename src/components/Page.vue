@@ -15,12 +15,12 @@
       <StoryblokComponent v-if="logo" :blok="logo" :v-editable="logo" />
 
 
-    <div class="wrapper" >
+    <div class="wrapper">
       <StoryblokComponent v-if="helloWorld" :blok="helloWorld" :v-editable="helloWorld" />
     </div>
   </header>
 
-  <main >
+  <main>
     <StoryblokComponent v-if="theWelcome" :blok="theWelcome" :v-editable="theWelcome"/>
   </main>
     
